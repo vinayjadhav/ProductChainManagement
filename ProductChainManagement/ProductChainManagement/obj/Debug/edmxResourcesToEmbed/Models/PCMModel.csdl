@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductChainMarketingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ClientMasters" Relationship="ProductChainMarketingModel.FK__ClientMas__Gende__3B75D760" FromRole="Gender" ToRole="ClientMaster" />
+  </EntityType>
+  <EntityType Name="Membership_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ClientMasters" Relationship="ProductChainMarketingModel.FK__ClientMas__Membe__3C69FB99" FromRole="Membership_Type" ToRole="ClientMaster" />
+  </EntityType>
+  <EntityType Name="Payment_Mode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="PCMConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account_Type" EntityType="Self.Account_Type" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="Membership_Type" EntityType="Self.Membership_Type" />
+    <EntitySet Name="Payment_Mode" EntityType="Self.Payment_Mode" />
+    <EntitySet Name="ClientMasters" EntityType="ProductChainMarketingModel.ClientMaster" />
+    <AssociationSet Name="FK__ClientMas__Gende__3B75D760" Association="ProductChainMarketingModel.FK__ClientMas__Gende__3B75D760">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="ClientMaster" EntitySet="ClientMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientMas__Membe__3C69FB99" Association="ProductChainMarketingModel.FK__ClientMas__Membe__3C69FB99">
+      <End Role="Membership_Type" EntitySet="Membership_Type" />
+      <End Role="ClientMaster" EntitySet="ClientMasters" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ClientMaster">
+    <Key>
+      <PropertyRef Name="Client_Id" />
+    </Key>
+    <Property Name="Client_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pin_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Phone_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Ref_Client_Id" Type="Int32" />
+    <Property Name="Membership_Type" Type="Int32" />
+    <Property Name="Image_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Signature_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Can_Login" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Gender1" Relationship="ProductChainMarketingModel.FK__ClientMas__Gende__3B75D760" FromRole="ClientMaster" ToRole="Gender" />
+    <NavigationProperty Name="Membership_Type1" Relationship="ProductChainMarketingModel.FK__ClientMas__Membe__3C69FB99" FromRole="ClientMaster" ToRole="Membership_Type" />
+  </EntityType>
+  <Association Name="FK__ClientMas__Gende__3B75D760">
+    <End Type="ProductChainMarketingModel.Gender" Role="Gender" Multiplicity="0..1" />
+    <End Type="ProductChainMarketingModel.ClientMaster" Role="ClientMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientMaster">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientMas__Membe__3C69FB99">
+    <End Type="ProductChainMarketingModel.Membership_Type" Role="Membership_Type" Multiplicity="0..1" />
+    <End Type="ProductChainMarketingModel.ClientMaster" Role="ClientMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membership_Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientMaster">
+        <PropertyRef Name="Membership_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

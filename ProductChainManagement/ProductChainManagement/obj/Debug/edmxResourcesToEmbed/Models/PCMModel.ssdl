@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductChainMarketingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ClientMaster">
+    <Key>
+      <PropertyRef Name="Client_Id" />
+    </Key>
+    <Property Name="Client_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_Code" Type="varchar" MaxLength="10" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="Pin_Code" Type="varchar" MaxLength="10" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="Phone_No" Type="varchar" MaxLength="20" />
+    <Property Name="Ref_Client_Id" Type="int" />
+    <Property Name="Membership_Type" Type="int" />
+    <Property Name="Image_Path" Type="varchar" MaxLength="200" />
+    <Property Name="Signature_Path" Type="varchar" MaxLength="200" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+    <Property Name="Can_Login" Type="bit" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Membership_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Payment_Mode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__ClientMas__Gende__3B75D760">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="ClientMaster" Type="Self.ClientMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientMaster">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ClientMas__Membe__3C69FB99">
+    <End Role="Membership_Type" Type="Self.Membership_Type" Multiplicity="0..1" />
+    <End Role="ClientMaster" Type="Self.ClientMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membership_Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClientMaster">
+        <PropertyRef Name="Membership_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProductChainMarketingModelStoreContainer">
+    <EntitySet Name="Account_Type" EntityType="Self.Account_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientMaster" EntityType="Self.ClientMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Membership_Type" EntityType="Self.Membership_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_Mode" EntityType="Self.Payment_Mode" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ClientMas__Gende__3B75D760" Association="Self.FK__ClientMas__Gende__3B75D760">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="ClientMaster" EntitySet="ClientMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ClientMas__Membe__3C69FB99" Association="Self.FK__ClientMas__Membe__3C69FB99">
+      <End Role="Membership_Type" EntitySet="Membership_Type" />
+      <End Role="ClientMaster" EntitySet="ClientMaster" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

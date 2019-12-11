@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProductChainMarketingModelStoreContainer" CdmEntityContainer="PCMConnection">
+    <EntitySetMapping Name="Account_Type">
+      <EntityTypeMapping TypeName="ProductChainMarketingModel.Account_Type">
+        <MappingFragment StoreEntitySet="Account_Type">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="ProductChainMarketingModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membership_Type">
+      <EntityTypeMapping TypeName="ProductChainMarketingModel.Membership_Type">
+        <MappingFragment StoreEntitySet="Membership_Type">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Mode">
+      <EntityTypeMapping TypeName="ProductChainMarketingModel.Payment_Mode">
+        <MappingFragment StoreEntitySet="Payment_Mode">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientMasters">
+      <EntityTypeMapping TypeName="ProductChainMarketingModel.ClientMaster">
+        <MappingFragment StoreEntitySet="ClientMaster">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Can_Login" ColumnName="Can_Login" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="Signature_Path" ColumnName="Signature_Path" />
+          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+          <ScalarProperty Name="Membership_Type" ColumnName="Membership_Type" />
+          <ScalarProperty Name="Ref_Client_Id" ColumnName="Ref_Client_Id" />
+          <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Pin_Code" ColumnName="Pin_Code" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Customer_Code" ColumnName="Customer_Code" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

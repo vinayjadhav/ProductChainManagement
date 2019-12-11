@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cbacb3a0014548298e8384f893fba4b5" Name="Diagram1">
+        <EntityTypeShape EntityType="ProductChainMarketingModel.Account_Type" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductChainMarketingModel.Gender" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductChainMarketingModel.Membership_Type" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductChainMarketingModel.Payment_Mode" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductChainMarketingModel.ClientMaster" Width="1.5" PointX="5" PointY="0.75" />
+        <AssociationConnector Association="ProductChainMarketingModel.FK__ClientMas__Gende__3B75D760" />
+        <AssociationConnector Association="ProductChainMarketingModel.FK__ClientMas__Membe__3C69FB99" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
